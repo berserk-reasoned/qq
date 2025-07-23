@@ -1,1 +1,46 @@
-<!-- AndroidManifest.xml -->
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Location permissions -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
+    <!-- Mock location permission for testing -->
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" 
+        tools:ignore="MockLocation" />
+    
+    <!-- Shizuku permission -->
+    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
+    
+    <!-- Query all packages for Shizuku detection -->
+    <queries>
+        <package android:name="moe.shizuku.privileged.api" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:label="ShizukuSpoofApp"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:requestLegacyExternalStorage="true"
+        tools:targetApi="31">
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Shizuku user service -->
+        <service
+            android:name=".ShizukuLocationService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":shizuku" />
+    </application>
+</manifest>
