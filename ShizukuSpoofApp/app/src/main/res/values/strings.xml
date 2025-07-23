@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ShizukuSpoofApp</string>
+    <string name="latitude_hint">Latitude (-90 to 90)</string>
+    <string name="longitude_hint">Longitude (-180 to 180)</string>
+    <string name="start_spoofing">Start Spoofing</string>
+    <string name="stop_spoofing">Stop Spoofing</string>
+    <string name="status_checking">Checking environment status...</string>
+    <string name="warning_text">⚠️ Warning: This app is for testing purposes only. Ensure you have proper authorization before using location spoofing.</string>
+</resources>
